@@ -1,0 +1,9 @@
+<h3> Blood Gluclose Level Reading </h3>
+
+<h4> Date:     <%= @level.date %> </h4>
+<h4> Time:     <%= @level.time %> </h4>
+<h4> Reading:  <%= @level.reading%> </h4>
+
+<br>
+<h6><%= link_to "Edit",    "/levels/#{@level.id}/edit", class: "btn btn-success" %></h6> 
+<h6><%= link_to "Delete",  "/levels/#{@level.id}", method: :delete, class: "btn btn-success" %></h6>

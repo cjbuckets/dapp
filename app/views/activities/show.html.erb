@@ -1,0 +1,9 @@
+<h3> Activity/exercise Tracker </h3>
+
+<h4> Activity:     <%= @exercise.activity %> </h4> 
+<h4> Duration:     <%= @exercise.duration %> </h4>
+<h4> Date:         <%= @exercise.date     %> </h4>
+
+<br>
+<h6><%= link_to "Edit",    "/activities/#{@exercise.id}/edit", class: "btn btn-success" %></h6> 
+<h6><%= link_to "Delete",  "/activities/#{@exercise.id}", method: :delete, class: "btn btn-succes" %></h6
