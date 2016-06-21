@@ -3,24 +3,20 @@
 
   <%= form_tag '/levels', method: :patch do %>
 
-    <div>
-    <%= label_tag :user_id %>
-    <%= text_field_tag :user_id%>
-    </div>
-    
+  
     <div>
     <%= label_tag :reading %>
-    <%= text_field_tag :reading%>
+    <%= text_field_tag :reading, @level.reading %>
     </div>
 
     <div>
     <%= label_tag :date %>
-    <%= text_field_tag :date%>
+    <%= text_field_tag :date, @level.date %>
     </div>
 
     <div>
     <%= label_tag :time %>
-    <%= text_field_tag :time%>
+    <%= text_field_tag :time, @level.time %>
     </div>
 
     <div>

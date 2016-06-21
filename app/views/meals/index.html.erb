@@ -1,0 +1,13 @@
+<h1> Meals </h1>
+
+<% @diets.each do |diet| %>
+  <h3><%= diet.meal %></h3>
+  <p>Date: <%= diet.date %></p>
+  <p>Carbs: <%= diet.carbs %></p>
+<br>
+<% end %>
+
+<h4><%= link_to "New Meal", "/meals/new", class: "btn btn-success" %></h4> 
+<h5><%= link_to "Levels", "/levels", class: "btn btn-success" %></h5>
+<h5><%= link_to "Activities", "/activities", class: "btn btn-success" %></h5>
+

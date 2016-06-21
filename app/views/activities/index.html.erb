@@ -1,3 +1,14 @@
 
 <h2> Dapp Activity Tracker</h2>
 <br>
+
+<% @exercises.each do |exercise| %>
+  <h3><%= exercise.activity %></h3>
+  <p>Date: <%= exercise.date %></p>
+  <p>Duration: <%= exercise.date %></p>
+<br>
+<% end %>
+
+<h4><%= link_to "New Activity", "/activities/new", class: "btn btn-success" %></h4> 
+<h5><%= link_to "Levels", "/levels", class: "btn btn-success" %></h5> 
+<h5><%= link_to "Meals", "/meals", class: "btn btn-success" %></h5> 

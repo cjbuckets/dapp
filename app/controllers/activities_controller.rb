@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   def index
-    @exercises
+    @exercises = Exercise.all
   end
 
   def new
@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
         date:     params[:date]
         )
     flash[:success] = "Activity Created"
-    redirect_to "/"    
+    redirect_to "/activities"    
   end
 
   def show
@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
       @exercise.destroy
 
       flash[:yo!] = "Activity deleted!"
-      redirect_to "/" 
+      redirect_to "/activities" 
   end
 
 

@@ -1,21 +1,21 @@
 <h1> Edit Activity </h1>
 
 
-  <%= form_tag "/activities/#{@exercise.id}", method: :patch do %>
+  <%= form_tag "/activities/", method: :patch do %>
 
     <div>
     <%= label_tag :activity %>
-    <%= text_field_tag :activity%>
+    <%= text_field_tag :activity, @exercise.activity %>
     </div>
 
     <div>
     <%= label_tag :duration %>
-    <%= text_field_tag :duration%>
+    <%= text_field_tag :duration, @exercise.duration %>
     </div>
 
     <div>
     <%= label_tag :date %>
-    <%= text_field_tag :date%>
+    <%= text_field_tag :date, @exercise.date %>
     </div>
     
     <div>

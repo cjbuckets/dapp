@@ -14,7 +14,7 @@ class LevelsController < ApplicationController
         time:    params[:time]
         )
     flash[:success] = "Reading Created"
-    redirect_to "/"
+    redirect_to "/levels"
   end
 
   def show
@@ -35,7 +35,7 @@ class LevelsController < ApplicationController
           )
 
       flash[:success] = "Level Updated"
-      redirect_to "/levels/#{@levels.id}"
+      redirect_to "/levels/#{@level.id}"
       else
         render :edit
       end
@@ -46,6 +46,6 @@ class LevelsController < ApplicationController
       @level.destroy
 
       flash[:yo!] = "Reading deleted!"
-      redirect_to "/" 
+      redirect_to "/levels" 
   end
 end

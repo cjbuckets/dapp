@@ -1,0 +1,29 @@
+<h1> New Meal</h1>
+
+  <%= form_tag '/meals', method: :post do %>
+
+    
+    <div>
+    <%= label_tag :meal %>
+    <%= text_field_tag :meal%>
+    </div>
+
+    <div>
+    <%= label_tag :date %>
+    <%= text_field_tag :date %>
+    </div>
+
+    <div>
+    <%= label_tag :carbs %>
+    <%= text_field_tag :carbs %>
+    </div>
+
+    <div>
+    <%= submit_tag 'SUMBIT' %>
+    </div>
+  <% end %>
+
+
+
+
+    </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619202356) do
+ActiveRecord::Schema.define(version: 20160621162445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160619202356) do
     t.string   "carbs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "date"
   end
 
   create_table "exercises", force: :cascade do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160619202356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "date"
+    t.string   "user_id"
   end
 
   create_table "levels", force: :cascade do |t|

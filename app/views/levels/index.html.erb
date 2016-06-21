@@ -1,4 +1,12 @@
+<h1> Levels </h1>
 
-<h2> Dapp Home Page </h2>
+<% @levels.each do |level| %>
+  <h3><%= level.reading %></h3>
+  <p>Date: <%= level.date %></p>
+  <p>Time: <%= level.time %></p>
+<br>
+<% end %>
 
-              
+<h4><%= link_to "New Reading", "/levels/new", class: "btn btn-success" %></h4> 
+<h5><%= link_to "Activities", "activities", class: "btn btn-success" %></h5> 
+<h5><%= link_to "Meals", "/meals", class: "btn btn-success" %></h5> 
