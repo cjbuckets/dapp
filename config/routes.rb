@@ -26,8 +26,4 @@ devise_for :users
   patch '/meals/:id'      => 'meals#update'
   delete'/meals/:id'      => 'meals#destroy'
 
-
-
-
-
 end
