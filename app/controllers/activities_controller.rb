@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.order(date: :desc)
   end
 
   def new

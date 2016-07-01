@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
 
   def index
-    @diets = Diet.all
+    @diets = Diet.order(created_at: :desc)
   end
 
   def new

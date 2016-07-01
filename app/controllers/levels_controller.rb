@@ -1,9 +1,10 @@
 class LevelsController < ApplicationController
   def index
-    @test_token = ENV['test_api_token']
-    @test_secret = ENV['test_api_secret']
+    # @test_token = ENV['test_api_token']
+    # @test_secret = ENV['test_api_secret']
 
-    @levels = Level.all
+    @levels = Level.order(created_at: :desc)
+ 
   end
 
   def new
@@ -29,7 +30,7 @@ class LevelsController < ApplicationController
   end
 
   def update
-    @Level = Level.find_by(id: params[:id])
+    @level = Level.find_by(id: params[:id])
 
       if @level.update(
           reading: params[:reading],

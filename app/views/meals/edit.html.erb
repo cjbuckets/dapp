@@ -1,0 +1,26 @@
+
+<h1> Edit Meal</h1>
+
+  <%= form_tag "/meals/#{@diet.id}", method: :patch do %>
+
+  
+    <div>
+    <%= label_tag :meal %>
+    <%= text_field_tag :meal, @diet.meal %>
+    </div>
+
+    <div>
+    <%= label_tag :date %>
+    <%= text_field_tag :date, @diet.date %>
+    </div>
+
+    <div>
+    <%= label_tag :carbs %>
+    <%= text_field_tag :carbs, @diet.carbs %>
+    </div>
+
+    <div>
+    <%= submit_tag 'Update' %>
+    </div>
+
+  <% end %>

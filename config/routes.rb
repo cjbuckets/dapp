@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 devise_for :users
+
+  get   '/'            => 'home#index'
   
   get   '/levels'          => 'levels#index'
   get   '/levels/new'      => 'levels#new'
@@ -25,5 +27,7 @@ devise_for :users
   get   '/meals/:id/edit' => 'meals#edit'
   patch '/meals/:id'      => 'meals#update'
   delete'/meals/:id'      => 'meals#destroy'
+
+  get   '/reports'        => 'reports#index'
 
 end

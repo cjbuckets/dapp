@@ -1,7 +1,7 @@
 <h1> Edit Activity </h1>
 
 
-  <%= form_tag "/activities/", method: :patch do %>
+  <%= form_tag "/activities/#{@exercise.id}", method: :patch do %>
 
     <div>
     <%= label_tag :activity %>
