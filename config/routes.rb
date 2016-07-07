@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 devise_for :users
 
-  get   '/'            => 'home#index'
+  get   '/home'                => 'home#index'
   
   get   '/levels'          => 'levels#index'
   get   '/levels/new'      => 'levels#new'
@@ -29,5 +29,8 @@ devise_for :users
   delete'/meals/:id'      => 'meals#destroy'
 
   get   '/reports'        => 'reports#index'
+
+
+  get  '/' => 'pages#index'
 
 end

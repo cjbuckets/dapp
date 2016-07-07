@@ -1,6 +1,9 @@
+<div id="reports">
 <h1> Reports </h1>
 <br>
+</div>
 
+<div id="levels">
 <h2> Levels </h2>
 
 <% @levels.each do |level| %>
@@ -10,9 +13,16 @@
 <br>
 <% end %>
 
+<h1>THIS IS THE AVERAGE: </h1>
+<%@grouped_levels.each do |level| %>
+<h3> <%= level.readings %></h3>
+<% end %>
+</div>
 
 
+<div id="meals">
 <h2> Meals </h2>
+
 
 <% @diets.each do |diet| %>
   <h3> <a href="/meals/<%= diet.id %>"><%= diet.meal%></a></h3>
@@ -20,7 +30,10 @@
   <p>Carbs: <%= diet.carbs %></p>
 <br>
 <% end %>
+</div>
 
+
+<div id="activities">
 <h2> Activities </h2>
 
 <% @exercises.each do |exercise| %>
@@ -29,5 +42,6 @@
   <p>Duration: <%= exercise.duration %></p>
 <br>
 <% end %>
+</div>
 
 

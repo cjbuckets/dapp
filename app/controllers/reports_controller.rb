@@ -5,21 +5,18 @@ class ReportsController < ApplicationController
     @exercises = Exercise.order(created_at: :desc)
     @diets = Diet.order(created_at: :desc)
 
-  #     sum = 0 
-  #     @levels.each do |level|
-  #     sum += level.reading.to_i
-  #     end
 
-  #   x = sum.length
-  #   y = sum
+        @grouped_levels = Level.all.group_by { |level| level.created_at.to_date }.sum(:reading)
+        # @grouped_levels = Level.all.group('date(created_at)').sum(:reading)
 
-  #   puts y / x 
-  # end
+        # @grouped_levels.each do |x|
+        # @test = x[1]
+        
 
-  # current_user.comments.group("DATE_TRUNC('month', created_at)").count
-  end
+        # x = sum.length
+        # y = sum
 
-  def average 
-      Level.all.group_by { |level| level.created_at.to_date }
-  end
+         # @average = "y / x "
+   
+    end
 end
