@@ -2,20 +2,39 @@
   {{ 1 + 1 }}
 </div>
 
+<br>
 
-<h1> Levels </h1>
+    <div>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Levels <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/levels">Order By Date</a></li>
+          <li><a href="#">Last 10 Readings</a></li>
+          <li><a href="#">All Readings</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">New Reading</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">One more separated link</a></li>
+        </ul>
+      </li>
+    </div>
 
 <% @levels.each do |level| %>
-  <h3> <a href="/levels/<%= level.id %>"><%= level.reading %></a></h3>
-  <p>Date: <%= level.date %></p>
-  <p>Time: <%= level.time %></p>
+  <h4> <a href="/levels/<%= level.id %>"><%= level.reading %></a></h4>
+  <h5>Date: <%= level.date %></h5>
+  <h5>Time: <%= level.time %></h5>
 <br>
 <% end %>
 
-<h4><%= link_to "New Reading", "/levels/new", class: "btn btn-success" %></h4>
+<p><%= link_to "Printable Levels Summary", levels_path(@levels, format: "pdf") %></p>
+
+
 <h5><%= link_to "Activities", "/activities", class: "btn btn-success" %></h5> 
 <h5><%= link_to "Meals", "/meals", class: "btn btn-success" %></h5> 
 <h5><%= link_to "Reports", "/reports", class: "btn btn-success" %></h5> 
 
 <!-- <p><%= @test_token %></p>
 <p><%= @test_secret %></p> -->
+
+
+

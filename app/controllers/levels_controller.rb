@@ -4,8 +4,18 @@ class LevelsController < ApplicationController
     # @test_secret = ENV['test_api_secret']
 
     @levels = Level.order(created_at: :desc)
- 
+    # @last_seven_counts = @levels.first(7)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf= LevelPdf.new(@levels)
+        send_data pdf.render, filename: "level_#{@levels}.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
+
 
   def new
     @level = Level.new
@@ -32,18 +42,18 @@ class LevelsController < ApplicationController
   def update
     @level = Level.find_by(id: params[:id])
 
-      if @level.update(
-          reading: params[:reading],
-          date:    params[:date],
-          time:    params[:time]
-          )
+    if @level.update(
+        reading: params[:reading],
+        date:    params[:date],
+        time:    params[:time]
+        )
 
-      flash[:success] = "Level Updated"
-      redirect_to "/levels/#{@level.id}"
-      else
-        render :edit
-      end
-  end
+    flash[:success] = "Level Updated"
+    redirect_to "/levels/#{@level.id}"
+    else
+      render :edit
+    end
+   end
 
   def destroy
     @level = Level.find_by(id: params[:id])

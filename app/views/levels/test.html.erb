@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+<div>
+  <%= month_calendar events: @levels, attribute: :created_at do |date, levels| %>
+  <%= date %>
+
+  <% levels.each do |level| %>
+    <div>
+      <%= level.reading %>
+    </div>
+  <% end %>
+<% end %>
+
+</div>

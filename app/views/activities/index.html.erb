@@ -1,10 +1,10 @@
 
-<h2> Dapp Activity Tracker</h2>
+<h3> Dapp Activity Tracker</h3>
 
 <% @exercises.each do |exercise| %>
-  <h3> <a href="/activities/<%= exercise.id %>"><%= exercise.activity %></a></h3>
-  <p>Date: <%= exercise.date %></p>
-  <p>Duration: <%= exercise.duration %></p>
+  <h4> <a href="/activities/<%= exercise.id %>"><%= exercise.activity %></a></h4>
+  <h5>Date: <%= exercise.date %></h5>
+  <h5>Duration: <%= exercise.duration %></h5>
 <br>
 <% end %>
 
