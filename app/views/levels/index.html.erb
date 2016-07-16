@@ -2,39 +2,108 @@
   {{ 1 + 1 }}
 </div>
 
-<br>
 
-    <div>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Levels <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/levels">Order By Date</a></li>
-          <li><a href="#">Last 10 Readings</a></li>
-          <li><a href="#">All Readings</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">New Reading</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li>
+<body>
+
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    New Reading
+  </button>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Record your blood sugar level</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_tag '/levels', method: :post do %>
+
+      <div>
+      <%= label_tag :reading %>
+      <%= text_field_tag :reading%>
+      </div>
+
+      <div>
+      <%= label_tag :date %>
+      <%= text_field_tag :date%>
+      </div>
+
+      <div>
+      <%= label_tag :time %>
+      <%= text_field_tag :time%>
+      </div>
+
+      <div>
+      <%= submit_tag 'SUMBIT' %>
+      </div>
+
+    <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
     </div>
-
-<% @levels.each do |level| %>
-  <h4> <a href="/levels/<%= level.id %>"><%= level.reading %></a></h4>
-  <h5>Date: <%= level.date %></h5>
-  <h5>Time: <%= level.time %></h5>
-<br>
-<% end %>
-
-<p><%= link_to "Printable Levels Summary", levels_path(@levels, format: "pdf") %></p>
-
-
-<h5><%= link_to "Activities", "/activities", class: "btn btn-success" %></h5> 
-<h5><%= link_to "Meals", "/meals", class: "btn btn-success" %></h5> 
-<h5><%= link_to "Reports", "/reports", class: "btn btn-success" %></h5> 
+  </div>
 
 <!-- <p><%= @test_token %></p>
 <p><%= @test_secret %></p> -->
 
+    <div class="item active">
+            <ul class="thumbnails">
+                <li class="span3">
+                    <div class="thumbnail">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1443219039328-224ed0298799?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0aa288e30d9e8761cdae0aeeed163208" alt=""></a>
+                    </div>
+                    <div class="caption">
+                      
+                    </div>
+                </li>
+            </ul>
+    </div>
 
 
+ 
+    <div class="well col-md-4">
+        <% @levels.each do |level| %>
+            <h4> <a href="/levels/<%= level.id %>"><%= level.reading %></a></h4>
+            <h5>Date: <%= level.date %></h5>
+            <h5>Time: <%= level.time %></h5>
+        <br>
+        <% end %>
+    </div>
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>asdfasdf</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+  
+
+
+    <p><%= link_to "Printable Levels Summary", levels_path(@levels, format: "pdf") %></p>

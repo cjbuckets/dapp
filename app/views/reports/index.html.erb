@@ -42,7 +42,8 @@
 
   <% levels.each do |level| %>
     <div>
-      <%= level.reading %>
+      <%= level.reading%>
+      <%= level.time %>
     </div>
   <% end %>
 <% end %>
@@ -55,37 +56,96 @@
 <br>
 </div>
 
+
+
+
+
+
+
+
+
+<!-- Start of levels collapse -->
 <div id="levels">
-<h4> Levels </h4>
-<% @levels.each do |level| %>
-  <h4> <a href="/levels/<%= level.id %>"><%= level.reading %></a></h4>
-  <h5>Date: <%= level.date %></h5>
-  <h5>Time: <%= level.time %></h5>
-<br>
-<% end %>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Levels
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+        <% @levels.each do |level| %>
+        <div class="level-info well col-md-4">
+          <h4> <a href="/levels/<%= level.id %>"><%= level.reading %></a></h4>
+          <h5>Date: <%= level.date %></h5>
+          <h5>Time: <%= level.time %></h5>
+        </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
 </div>
 
-<div id="meals">
-<h4> Meals </h4>
 
-<% @diets.each do |diet| %>
-  <h4> <a href="/meals/<%= diet.id %>"><%= diet.meal%></a></h4>
-  <h5>Date: <%= diet.date %></h5>
-  <h5>Carbs: <%= diet.carbs %></h5>
-<br>
-<% end %>
-</div>
-
-
+<!-- Start of activities collapse -->
 <div id="activities">
-<h4> Activities </h4>
-
-<% @exercises.each do |exercise| %>
-  <h4> <a href="/activities/<%= exercise.id %>"><%= exercise.activity %></a></h4>
-  <h5>Date: <%= exercise.date %></h5>
-  <h5>Duration: <%= exercise.duration %></h5>
-<br>
-<% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+          Activity
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+       <% @exercises.each do |exercise| %>
+       <div class="diet-info well col-md-4">
+        <h4> <a href="/activities/<%= exercise.id %>"><%= exercise.activity %></a></h4>
+        <h5>Date: <%= exercise.date %></h5>
+        <h5>Duration: <%= exercise.duration %></h5>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<!-- Start of meals collapse -->
+<div id="meals">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+          Meals
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <% @diets.each do |diet| %>
+        <div class="meal-info well col-md-4">
+          <h4> <a href="/meals/<%= diet.id %>"><%= diet.meal%></a></h4>
+          <h5>Date: <%= diet.date %></h5>
+          <h5>Carbs: <%= diet.carbs %></h5>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
 
 

@@ -7,23 +7,21 @@ class LevelPdf < Prawn::Document
   end
 
   def levels
-    text "levels \##{@level}", size: 30, style: :bold
+    text "CJ Paz Glucose Readings ", size: 20, style: :bold
     
   end
 
   def line_items
     move_down 20
-    table [[1, 2],[3, 4]]
-      # row(0).font_style = :bold
-      # columns(1..3).align = :right
-      # self.row_colors = ["DDDDDD", "FFFFFF"]
-      # self.header = true
+    table line_item_rows 
+    
   end
 
-  # def line_item_rows
-  #   [["Test", "test", "Test Again", "Last Test"]] +
-  #   @levels.line_items.map do |item|
-  #     [item.reading, item.date, item.date, item.time]
-  #   end
-  # end
+  def line_item_rows
+    [["Date", "Time","Reading",]] +
+    @levels.map do |level|
+      [level.date, level.time, level.reading]
+    end
+  end
 end
+
