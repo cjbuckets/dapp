@@ -1,16 +1,86 @@
+<div class="container-fluid">
+<div class="col-md-12">
+<div class="row">
 
-<h3> Dapp Activity Tracker</h3>
 
-<% @exercises.each do |exercise| %>
-  <h4> <a href="/activities/<%= exercise.id %>"><%= exercise.activity %></a></h4>
-  <h5>Date: <%= exercise.date %></h5>
-  <h5>Duration: <%= exercise.duration %></h5>
-<br>
-<% end %>
+<!-- activity image -->
+  <div class="col-md-12">
+    <div class="do-item" style="background-image: url('https://images.unsplash.com/photo-1421091242698-34f6ad7fc088?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=cb4a6efe73dc2465a8c57049829b2824'); height: 40em; background-size: cover; background-position: center;">
+        <div class="do-info-wrap">
+          <div class="do-info">
+            <div class="do-info-front"></div>
+            <div class="do-info-back">
+            <h1><%= link_to "Activities", "/levels", class: "btn btn-success" %></h1> 
+            <div>
+             <button type="button" class="btn btn-primary btn-med" data-toggle="modal" data-target="#myModal"> New Activity </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-5">
+    </div>
+  </div>
 
-<h4><%= link_to "New Activity", "/activities/new", class: "btn btn-success" %></h4> 
-<h5><%= link_to "Levels", "/levels", class: "btn btn-success" %></h5> 
-<h5><%= link_to "Meals", "/meals", class: "btn btn-success" %></h5> 
-<h5><%= link_to "Reports", "/reports", class: "btn btn-success" %></h5> 
+<!-- end of activity image -->
+
+<div class="modal fade" id="myModalactivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="modal-title" id="myModalLabel"> Log your activity.</p>
+        </div>
+        <div class="modal-body">
+          <div class="do-hotstuff">
+          <%= form_tag '/activities', method: :post do %>
+
+          <div>
+          <%= label_tag :activity %>
+          <%= text_field_tag :activity%>
+          </div>
+
+          <div>
+          <%= label_tag :date %>
+          <%= text_field_tag :date%>
+          </div>
+
+          <div>
+          <%= label_tag :duration %>
+          <%= text_field_tag :duration%>
+          </div>
+
+          <div>
+          <%= submit_tag 'SUMBIT' %>
+          </div>
+
+          <% end %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="do-hotstuff">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+<div>
+  <% @exercises.each do |exercise| %>
+    <h4> <a href="/activities/<%= exercise.id %>"><%= exercise.activity %></a></h4>
+    <h5>Date: <%= exercise.date %></h5>
+    <h5>Duration: <%= exercise.duration %></h5>
+  <br>
+  <% end %>
+</div>
+  
+
+
+
+
 
 

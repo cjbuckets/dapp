@@ -33,10 +33,18 @@
   left: 20px;
   width: calc(100% - 40px);
   height: calc(100% - 40px);
-  transition: all 0.4s ease-in-out;
+  transition: all 1.4s ease-in-out;
+ }
+
+ .do-info-wrap-two {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  transition: all 1.4s ease-in-out;
   perspective: 800px;
- 
-}
+ }
 
 .do-info {
   position: absolute;

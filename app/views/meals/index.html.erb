@@ -1,14 +1,93 @@
+<div ng-app="app">
+  {{ 1 + 1 }}
+</div>
 
-  
+
+<body>
+
+
+<!-- end of modal button -->
+
+<!-- start of image -->
+
+   
+<div class="container-fluid">
+<div class="col-md-12">
+<div class="row">
+
+
+<!-- levels -->
+  <div class="col-md-12">
+    <div class="do-item" style="background-image: url('https://images.unsplash.com/photo-1453831210728-695502f9f795?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=915fd650b7a644e7a7def69a4896801e'); height: 40em; background-size: cover; background-position: center;">
+      <div class="do-info-wrap">
+        <div class="do-info">
+          <div class="do-info-front"></div>
+          <div class="do-info-back">
+            <h1><%= link_to "Meals", "/meals", class: "btn btn-success" %></h1> 
+            <div>
+             <button type="button" class="btn btn-primary btn-med" data-toggle="modal" data-target="#myModal"> New Meal </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-5">
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="modal-title" id="myModalLabel">Record your blood sugar level.</p>
+        </div>
+        <div class="modal-body">
+          <%= form_tag '/levels', method: :post do %>
+
+      <div>
+      <%= label_tag :reading %>
+      <%= text_field_tag :reading%>
+      </div>
 
       <div>
-        <% @diets.each do |diet| %>    
-        <h4> <a href="/meals/<%= diet.id %>"><%= diet.meal%></a></h4>
-        <h5>Date: <%= diet.date %></h5>
-        <h5>Carbs: <%= diet.carbs %></h5>
-        <br>
+      <%= label_tag :date %>
+      <%= text_field_tag :date%>
+      </div>
+
+      <div>
+      <%= label_tag :time %>
+      <%= text_field_tag :time%>
+      </div>
+
+      <div>
+      <%= submit_tag 'SUMBIT' %>
+      </div>
+
+    <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
       </div>
-      <% end %>    
+    </div>
+  </div>
+<!-- end of inside image -->
+
+
+
+  <div>
+    <% @diets.each do |diet| %>    
+    <h4> <a href="/meals/<%= diet.id %>"><%= diet.meal%></a></h4>
+    <h5>Date: <%= diet.date %></h5>
+    <h5>Carbs: <%= diet.carbs %></h5>
+    <br>
+    <% end %>   
+  </div> 
+
 
 
 
