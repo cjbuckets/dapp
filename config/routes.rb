@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
 devise_for :users
 
-  get   '/home'                => 'home#index'
+  get   '/users/sign_in'   => 'users#index'
+  get   '/home'            => 'home#index'
   
   get   '/levels'          => 'levels#index'
   get   '/levels/new'      => 'levels#new'

@@ -1,18 +1,44 @@
-    <!-- Testing -->
+<body>
+  
+
+<div class="container-fluid">
+<div class="col-md-12">
+<div class="row">
 
 
-<br>
-<div class="container">
-
-  <div class="col-sm-5">
-    <div class="do-item">
-      <img src="https://images.unsplash.com/photo-1443219039328-224ed0298799?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0aa288e30d9e8761cdae0aeeed163208" class="do-item">
+<!-- levels -->
+  <div class="col-md-6">
+    <div class="do-item" style="background-image: url('https://images.unsplash.com/photo-1431576901776-e539bd916ba2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=a0941b28175909ca62f096eb533b0c97'); height: 24em; background-size: cover; background-position: center;">
       <div class="do-info-wrap">
         <div class="do-info">
           <div class="do-info-front"></div>
           <div class="do-info-back">
-            <h3>Levels</h3>
-            <div> Log your blood glucose levels </div>
+            <h1><%= link_to "Levels", "/levels", class: "btn btn-success" %></h1> 
+            <div>
+             <button type="button" class="btn btn-primary btn-med" data-toggle="modal" data-target="#myModal"> New Reading </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-5">
+    </div>
+  </div>
+
+
+<!-- Meals -->
+  <div class="col-md-6">
+    <div class="do-item" style="background-image: url('https://images.unsplash.com/photo-1455099229380-7b52707e356a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=60c03c06b1dd8579be253ac204bd2248'); height: 24em; background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <div class="do-info-wrap">
+        <div class="do-info">
+          <div class="do-info-front"></div>
+          <div class="do-info-back">
+            <h1><%= link_to "Meals", "/meals", class: "btn btn-success" %></h1>
+            <div> 
+            <button type="button" class="btn btn-primary btn-med" data-toggle="modal" data-target="#myModalmeal"> New Meal </button>
+            </div>
           </div>
         </div>
       </div>
@@ -23,18 +49,23 @@
     </div>
   </div>
 
+  </div>
 
+<!-- Activites -->
+<div class="col-md-12">
 
-  <div class="col-sm-5">
-    <div class="do-item">
-      <img src="https://images.unsplash.com/photo-1449453791997-5c0240b106e5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=a030b1259c4d68c5a477d12bb18b281b" class="do-item">
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="do-item" style="background-image: url('https://images.unsplash.com/photo-1421091242698-34f6ad7fc088?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=cb4a6efe73dc2465a8c57049829b2824'); height: 24em; background-size: cover; background-position: center; background-repeat: no-repeat;"> 
       <div class="do-info-wrap">
         <div class="do-info">
           <div class="do-info-front"></div>
           <div class="do-info-back">
-            <h3>Meals</h3>
-            <div> What did you have to eat? </div>
-            <div> New meal here! </div>
+          <h1><%= link_to "Activity", "/activities", class: "btn btn-success" %></h1>
+            <div >
+            <button type="button" class="btn btn-primary btn-med" data-toggle="modal" data-target="#myModalactivity"> New Activity </button>
+            </div>
           </div>
         </div>
       </div>
@@ -45,18 +76,16 @@
     </div>
   </div>
 
-
-  <div class="col-sm-5">
-    <div class="do-item">
-      <img src="https://images.unsplash.com/photo-1457449205106-d0aad138e99b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=075327777e0c668429e6908870e575b1" class="do-item">
+<!-- Reports -->
+    <div class="col-md-6">
+    <div class="do-item" style="background-image: url('https://images.unsplash.com/photo-1464958674501-4dc3d73d8f46?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=012504555848e4c54c50dfbf26dd857a'); height: 24em; background-size: cover; background-position: center; background-repeat: no-repeat;">  
       <div class="do-info-wrap">
         <div class="do-info">
           <div class="do-info-front"></div>
           <div class="do-info-back">
-            <h3> Activity </h3>
-            <div >Record your activity </div>
+            <h1><%= link_to "Reports", "/reports", class: "btn btn-success" %></h1>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
     <div class="col-sm-5">
@@ -65,27 +94,137 @@
     </div>
   </div>
 
+  </div>
 
-    <div class="col-sm-5">
-    <div class="do-item">
-      <img src="https://images.unsplash.com/photo-1464958674501-4dc3d73d8f46?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=012504555848e4c54c50dfbf26dd857a" class="do-item">
-      <div class="do-info-wrap">
-        <div class="do-info">
-          <div class="do-info-front"></div>
-          <div class="do-info-back">
-            <h3>Max Mustermann (43)</h3>
-            <div>Mönchaltdorf
-              <br /> Beruf / Funktion</div>
+</div>
+</div>
+
+
+<!-- levels modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="modal-title" id="myModalLabel">Record your blood sugar level.</p>
+        </div>
+        <div class="modal-body">
+          <%= form_tag '/levels', method: :post do %>
+
+      <div>
+      <%= label_tag :reading %>
+      <%= text_field_tag :reading%>
+      </div>
+
+      <div>
+      <%= label_tag :date %>
+      <%= text_field_tag :date%>
+      </div>
+
+      <div>
+      <%= label_tag :time %>
+      <%= text_field_tag :time%>
+      </div>
+
+      <div>
+      <%= submit_tag 'SUMBIT' %>
+      </div>
+
+    <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- meal modal -->
+  <div class="modal fade" id="myModalmeal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="modal-title" id="myModalLabel">What did you have to eat?</p>
+        </div>
+        <div class="modal-body" style= "">
+          <%= form_tag '/meals', method: :post do %>
+
+          <div>
+          <%= label_tag :meal %>
+          <%= text_field_tag :meal%>
+          </div>
+
+          <div>
+          <%= label_tag :date %>
+          <%= text_field_tag :date %>
+          </div>
+
+          <div>
+          <%= label_tag :carbs %>
+          <%= text_field_tag :carbs %>
+          </div>
+
+          <div>
+          <%= submit_tag 'SUMBIT' %>
+          </div>
+        <% end %>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- activity modal -->
+  <div class="modal fade" id="myModalactivity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p class="modal-title" id="myModalLabel"> Log your activity.</p>
+        </div>
+        <div class="modal-body">
+          <div class="do-hotstuff">
+          <%= form_tag '/activities', method: :post do %>
+
+          <div>
+          <%= label_tag :activity %>
+          <%= text_field_tag :activity%>
+          </div>
+
+          <div>
+          <%= label_tag :date %>
+          <%= text_field_tag :date%>
+          </div>
+
+          <div>
+          <%= label_tag :duration %>
+          <%= text_field_tag :duration%>
+          </div>
+
+          <div>
+          <%= submit_tag 'SUMBIT' %>
+          </div>
+
+          <% end %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="do-hotstuff">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-5">
-    </div>
-    <div class="col-sm-5">
-    </div>
-  </div>
+  </div> 
 
+  </body>
 
+  
+
+ 
 
 

@@ -16,11 +16,6 @@ class LevelsController < ApplicationController
     end
   end
 
-
-  def new
-    @level = Level.new
-  end
-
   def create
     @level = Level.create(
         reading: params[:reading],
@@ -31,6 +26,12 @@ class LevelsController < ApplicationController
     redirect_to "/levels"
   end
 
+
+  def new
+    @level = Level.new
+  end
+
+   
   def show
     @level = Level.find_by(id: params[:id])
   end

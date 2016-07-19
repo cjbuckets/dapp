@@ -1,144 +1,125 @@
-<div>
-  <form class="navbar-form navbar-left" role="first name">
-<%= form_tag '/', method: :get, class: "navbar-form navbar-right" do %>
- <div class="form-group">
- <%= text_field_tag :search_term, nil, class: "form-control", placeholder: "Search" %>
- </div>
-  <%= submit_tag "Search", class: "btn btn-default" %>
-<% end %>
-<br>
-
-<div>
-  <div class="container">
-            
-                
-                <ul class="list-inline cta-list">
-                    <li>
-                        <a href="#levels" class="btn btn-outline-black page-scroll-demo">Levels</a>
-                    </li>
-                    <li>
-                        <a href="#meals" class="btn btn-outline-black page-scroll-demo">Eat</a>
-                    </li>
-                    <li>
-                        <a href="#activities" class="btn btn-outline-black page-scroll-demo">Activity</a>
-                    </li>
-                    <li>
-                        <a href="#reports" class="btn btn-outline-black page-scroll-demo">Reports</a>
-                    </li>
-                </ul>
-            </div>
-
-
-
-
-
-</div>
-</div>
-<br>
-
-<div>
-  <%= month_calendar events: @levels, attribute: :created_at do |date, levels| %>
-  <%= date %>
-
-  <% levels.each do |level| %>
-    <div>
-      <%= level.reading%>
-      <%= level.time %>
-    </div>
-  <% end %>
-<% end %>
-
-</div>
-
-
-<div id="reports">
-<h4> Reports </h4>
-<br>
-</div>
-
-
-
-
-
-
-
-
-
-<!-- Start of levels collapse -->
-<div id="levels">
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingOne">
-        <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Levels
-          </a>
-        </h4>
-      </div>
-      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        <div class="panel-body">
-        <% @levels.each do |level| %>
-        <div class="level-info well col-md-4">
-          <h4> <a href="/levels/<%= level.id %>"><%= level.reading %></a></h4>
-          <h5>Date: <%= level.date %></h5>
-          <h5>Time: <%= level.time %></h5>
-        </div>
-        <% end %>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-<!-- Start of activities collapse -->
-<div id="activities">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-          Activity
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-       <% @exercises.each do |exercise| %>
-       <div class="diet-info well col-md-4">
-        <h4> <a href="/activities/<%= exercise.id %>"><%= exercise.activity %></a></h4>
-        <h5>Date: <%= exercise.date %></h5>
-        <h5>Duration: <%= exercise.duration %></h5>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- Start of meals collapse -->
-<div id="meals">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingFour">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-          Meals
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="panel-body">
-        <% @diets.each do |diet| %>
-        <div class="meal-info well col-md-4">
-          <h4> <a href="/meals/<%= diet.id %>"><%= diet.meal%></a></h4>
-          <h5>Date: <%= diet.date %></h5>
-          <h5>Carbs: <%= diet.carbs %></h5>
+ 
+  <body>
+    
+   <div class="container-fluid">
+     <div class="col-md-12">
+        <div class="do-item" style="background-image: url('https://images.unsplash.com/photo-1464958674501-4dc3d73d8f46?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=012504555848e4c54c50dfbf26dd857a'); height: 38em; background-size: cover; background-position: center; background-repeat: no-repeat;">  
+          <div class="do-info-wrap">
+            <div class="do-info">
+              <div class="do-info-front"></div>
+              <div class="do-info-back">
+                <h2>  <%= link_to "Reports", "/reports", class: "btn btn-success" %> </h2>
+                 <h2> <%= link_to "Levels Summary", levels_path(@levels, format: "pdf"),class: "btn btn-success" %> </h2>
+              </div>
+            </div> 
           </div>
-          <% end %>
+        </div>
+        <div class="col-sm-5">
+        </div>
+        <div class="col-sm-5">
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+
+
+    <div>
+      <form class="navbar-form navbar-left" role="first name">
+    <%= form_tag '/', method: :get, class: "navbar-form navbar-right" do %>
+     <div class="form-group">
+     <%= text_field_tag :search_term, nil, class: "form-control", placeholder: "Search" %>
+     </div>
+      <%= submit_tag "Search", class: "btn btn-default" %>
+    <% end %>
+    <br>
+
+
+   <div class="container-fluid">
+    <div class="col-md-12">
+      <div>
+        <%= month_calendar events: @levels, attribute: :created_at do |date, levels| %>
+        <%= date %>
+
+        <% levels.each do |level| %>
+          <div>
+            <%= level.reading%>
+            <%= level.time %>
+          </div>
+        <% end %>
+      <% end %>
       </div>
     </div>
   </div>
 
-</div>
+  
+    <div id="reports">
+    <br>
+    </div>
+
+    <!-- Start of levels collapse -->
+    <div class="container-fluid">
+    <div class="col-md-12">
+    <div id="levels">
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Levels
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+            
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <!-- Start of activities collapse -->
+    <div id="activities">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              Activity
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            <!-- insert here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Start of meals collapse -->
+    <div id="meals">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+              Meals
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+          <div class="panel-body">
+            
+            <!-- insert here -->
+          </div>
+        </div>
+      </div>
+
+     </div>
+    </div>
+  </body>
 
 
 

@@ -11,6 +11,7 @@
  * file per style scope.
  */
  /*
+ *= main.scss
  *= require_tree .
  *= require_self
  */
@@ -18,5 +19,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "simple_calendar";
+
+
 
 
